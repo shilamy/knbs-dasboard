@@ -12,16 +12,22 @@ import { PillarOneSection } from "./code-of-practice/PillarOneSection";
 import { PillarTwoSection } from "./code-of-practice/PillarTwoSection";
 import { PillarThreeSection } from "./code-of-practice/PillarThreeSection";
 import { ReferencesSection } from "./code-of-practice/ReferencesSection";
+import { AnnexSection } from "./code-of-practice/AnnexSection";
 
 export function CodeOfPractice() {
   const [activeSection, setActiveSection] = useState("intro");
 
   const sections = [
     { id: "intro", title: "Introduction", icon: FileText },
-    { id: "pillar-one", title: "Pillar 1: Professionalism", icon: ShieldCheck },
-    { id: "pillar-two", title: "Pillar 2: Impartiality", icon: Users },
+    { id: "pillar-one", title: "Pillar 1: Quality", icon: ShieldCheck },
+    { id: "pillar-two", title: "Pillar 2: Trustworthiness", icon: Users },
     { id: "pillar-three", title: "Pillar 3: Progressiveness", icon: Zap },
     { id: "references", title: "References", icon: BookOpen },
+    {
+      id: "annex",
+      title: "Annex: Indicators/Measures of Success",
+      icon: BookOpen,
+    },
   ];
 
   const renderContent = () => {
@@ -36,6 +42,8 @@ export function CodeOfPractice() {
         return <PillarThreeSection />;
       case "references":
         return <ReferencesSection />;
+      case "annex":
+        return <AnnexSection />;
       default:
         return <IntroSection />;
     }
