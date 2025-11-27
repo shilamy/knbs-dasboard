@@ -1,5 +1,5 @@
 import type { SectionKey } from "../QualityReport";
-import { SectionHeader } from "./SectionHeader";
+import { SectionHeader } from "../common/SectionHeader";
 import { ExternalLink } from "lucide-react";
 
 interface ReferencesProps {

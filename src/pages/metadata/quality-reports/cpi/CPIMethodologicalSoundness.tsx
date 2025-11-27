@@ -1,7 +1,7 @@
 // src/components/products/sections/CPIMethodologicalSoundness.tsx
-import type { SectionKey } from "../../QualityReport";
-import { SectionHeader } from "../../sections/SectionHeader";
-import { SubSection } from "../../sections/SubSection";
+import type { SectionKey } from "../QualityReport";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
 
 interface MethodologicalSoundnessProps {
   isOpen: boolean;
@@ -122,52 +122,86 @@ export function MethodologicalSoundness({
                     </thead>
                     <tbody>
                       <tr className="border-b hover:bg-gray-50">
-                        <td className="px-4 py-2">Food and Non-Alcoholic Beverages</td>
-                        <td className="px-4 py-2 text-right font-medium">36.04</td>
+                        <td className="px-4 py-2">
+                          Food and Non-Alcoholic Beverages
+                        </td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          36.04
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
-                        <td className="px-4 py-2">Alcoholic Beverages, Tobacco</td>
-                        <td className="px-4 py-2 text-right font-medium">2.72</td>
+                        <td className="px-4 py-2">
+                          Alcoholic Beverages, Tobacco
+                        </td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          2.72
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Clothing and Footwear</td>
-                        <td className="px-4 py-2 text-right font-medium">3.59</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          3.59
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
-                        <td className="px-4 py-2">Housing, Water, Electricity, Gas</td>
-                        <td className="px-4 py-2 text-right font-medium">19.51</td>
+                        <td className="px-4 py-2">
+                          Housing, Water, Electricity, Gas
+                        </td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          19.51
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
-                        <td className="px-4 py-2">Furnishings, Household Equipment</td>
-                        <td className="px-4 py-2 text-right font-medium">4.02</td>
+                        <td className="px-4 py-2">
+                          Furnishings, Household Equipment
+                        </td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          4.02
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Health</td>
-                        <td className="px-4 py-2 text-right font-medium">2.68</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          2.68
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Transport</td>
-                        <td className="px-4 py-2 text-right font-medium">14.15</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          14.15
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Communication</td>
-                        <td className="px-4 py-2 text-right font-medium">3.50</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          3.50
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Recreation and Culture</td>
-                        <td className="px-4 py-2 text-right font-medium">2.13</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          2.13
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Education</td>
-                        <td className="px-4 py-2 text-right font-medium">6.92</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          6.92
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
                         <td className="px-4 py-2">Restaurants and Hotels</td>
-                        <td className="px-4 py-2 text-right font-medium">2.63</td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          2.63
+                        </td>
                       </tr>
                       <tr className="border-b hover:bg-gray-50">
-                        <td className="px-4 py-2">Miscellaneous Goods and Services</td>
-                        <td className="px-4 py-2 text-right font-medium">2.11</td>
+                        <td className="px-4 py-2">
+                          Miscellaneous Goods and Services
+                        </td>
+                        <td className="px-4 py-2 text-right font-medium">
+                          2.11
+                        </td>
                       </tr>
                       <tr className="bg-knbs-50 font-bold">
                         <td className="px-4 py-2">Total</td>
@@ -203,9 +237,7 @@ export function MethodologicalSoundness({
                   Aggregation Method
                 </h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-700">
-                  <li>
-                    Elementary aggregates calculated using geometric mean
-                  </li>
+                  <li>Elementary aggregates calculated using geometric mean</li>
                   <li>Higher-level indices use weighted arithmetic mean</li>
                   <li>Chain-linking applied during basket updates</li>
                 </ul>

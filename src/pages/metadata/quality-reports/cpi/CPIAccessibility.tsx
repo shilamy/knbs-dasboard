@@ -1,7 +1,7 @@
 // src/components/products/sections/CPIAccessibility.tsx
-import type { SectionKey } from "../../QualityReport";
-import { SectionHeader } from "../../sections/SectionHeader";
-import { SubSection } from "../../sections/SubSection";
+import type { SectionKey } from "../QualityReport";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
 import {
   ExternalLink,
   FileText,
@@ -42,8 +42,8 @@ export function Accessibility({ isOpen, onToggle }: AccessibilityProps) {
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     CPI data and reports are made available through{" "}
-                    <strong>multiple channels</strong> to ensure wide access
-                    for policy makers, researchers, and the public.
+                    <strong>multiple channels</strong> to ensure wide access for
+                    policy makers, researchers, and the public.
                   </p>
                 </div>
 
@@ -136,8 +136,8 @@ export function Accessibility({ isOpen, onToggle }: AccessibilityProps) {
                         </p>
                         <p className="text-sm text-gray-700 mb-3 leading-relaxed">
                           Kenya National Data Archive (KeNADA) provides
-                          interactive visualization and query tools for CPI
-                          data exploration.
+                          interactive visualization and query tools for CPI data
+                          exploration.
                         </p>
                         <a
                           href="https://statistics.knbs.or.ke/nada"

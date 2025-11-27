@@ -1,6 +1,6 @@
 // src/components/products/sections/CPIReferences.tsx
-import type { SectionKey } from "../../QualityReport";
-import { SectionHeader } from "../../sections/SectionHeader";
+import type { SectionKey } from "../QualityReport";
+import { SectionHeader } from "../common/SectionHeader";
 import { ExternalLink } from "lucide-react";
 
 interface ReferencesProps {

@@ -1,4 +1,4 @@
-import type { SectionKey } from "../QualityReport";
+import type { SectionKey } from "../../pages/metadata/quality-reports/QualityReport";
 
 interface SidebarProps {
   expandedSections: Record<SectionKey, boolean>;

@@ -1,7 +1,7 @@
 import type { SectionKey } from "../QualityReport";
-import { SectionHeader } from "./SectionHeader";
-import { SubSection } from "./SubSection";
-import { TableRow } from "./TableRow";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
+import { TableRow } from "../common/TableRow";
 import { ExternalLink, Calendar, Clock } from "lucide-react";
 
 interface TimelinessProps {

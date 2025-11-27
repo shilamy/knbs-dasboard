@@ -1,7 +1,7 @@
 // src/components/products/sections/CPITimeliness.tsx
-import type { SectionKey } from "../../QualityReport";
-import { SectionHeader } from "../../sections/SectionHeader";
-import { SubSection } from "../../sections/SubSection";
+import type { SectionKey } from "../QualityReport";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
 import { Calendar } from "lucide-react";
 
 interface TimelinessProps {

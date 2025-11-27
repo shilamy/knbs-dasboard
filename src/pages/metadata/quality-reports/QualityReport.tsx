@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { Sidebar } from "./layout/Sidebar";
+import { useState, useEffect } from "react";
+import { Sidebar } from "../../../components/layout/Sidebar";
 import { ReportTitleCard } from "./common/ReportTitleCard";
-import { GeneralInfo } from "./sections/GeneralInfo";
-import { Relevance } from "./sections/Relevance";
-import { MethodologicalSoundness } from "./sections/MethodologicalSoundness";
-import { Accuracy } from "./sections/Accuracy";
-import { Timeliness } from "./sections/Timeliness";
-import { Accessibility } from "./sections/Accessibility";
-import { Coherence } from "./sections/Coherence";
-import { References } from "./sections/References";
-import { CPIContent } from "./products/CPIContent";
+import { GeneralInfo } from "./poverty-inequality/GeneralInfo";
+import { Relevance } from "./poverty-inequality/Relevance";
+import { MethodologicalSoundness } from "./poverty-inequality/MethodologicalSoundness";
+import { Accuracy } from "./poverty-inequality/Accuracy";
+import { Timeliness } from "./poverty-inequality/Timeliness";
+import { Accessibility } from "./poverty-inequality/Accessibility";
+import { Coherence } from "./poverty-inequality/Coherence";
+import { References } from "./poverty-inequality/References";
+import { CPIContent } from "../../../components/products/CPIContent";
 
 export type SectionKey =
   | "general"
@@ -22,9 +22,16 @@ export type SectionKey =
   | "coherence"
   | "references";
 
-export default function KNBSQualityReport() {
-  const [selectedProductId, setSelectedProductId] =
-    useState("poverty-inequality");
+interface QualityReportProps {
+  initialProductId?: string;
+  onProductChange?: (productId: string) => void;
+}
+
+export default function QualityReport({
+  initialProductId = "poverty-inequality",
+  onProductChange,
+}: QualityReportProps) {
+  const [selectedProduct, setSelectedProduct] = useState(initialProductId);
   const [expandedSections, setExpandedSections] = useState<
     Record<SectionKey, boolean>
   >({
@@ -47,8 +54,17 @@ export default function KNBSQualityReport() {
   };
 
   const handleProductChange = (productId: string) => {
-    setSelectedProductId(productId);
+    setSelectedProduct(productId);
+    // Notify parent component about the change
+    if (onProductChange) {
+      onProductChange(productId);
+    }
   };
+
+  // Update when initialProductId changes (from navigation)
+  useEffect(() => {
+    setSelectedProduct(initialProductId);
+  }, [initialProductId]);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -60,9 +76,12 @@ export default function KNBSQualityReport() {
           />
 
           <div className="col-span-9">
-            <ReportTitleCard onProductChange={handleProductChange} />
+            <ReportTitleCard
+              onProductChange={handleProductChange}
+              selectedProductId={selectedProduct}
+            />
 
-            {selectedProductId === "poverty-inequality" ? (
+            {selectedProduct === "poverty-inequality" ? (
               <>
                 <GeneralInfo
                   isOpen={expandedSections.general}
@@ -97,7 +116,7 @@ export default function KNBSQualityReport() {
                   onToggle={toggleSection}
                 />
               </>
-            ) : selectedProductId === "cpi" ? (
+            ) : selectedProduct === "cpi" ? (
               <CPIContent
                 expandedSections={expandedSections}
                 onToggle={toggleSection}

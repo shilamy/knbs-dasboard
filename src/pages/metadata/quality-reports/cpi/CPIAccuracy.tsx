@@ -1,7 +1,7 @@
 // src/components/products/sections/CPIAccuracy.tsx
-import type { SectionKey } from "../../QualityReport";
-import { SectionHeader } from "../../sections/SectionHeader";
-import { SubSection } from "../../sections/SubSection";
+import type { SectionKey } from "../QualityReport";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
 
 interface AccuracyProps {
   isOpen: boolean;
@@ -41,9 +41,7 @@ export function Accuracy({ isOpen, onToggle }: AccuracyProps) {
                     Outlets
                   </p>
                   <p className="text-2xl font-bold text-knbs-600">2,800+</p>
-                  <p className="text-xs text-gray-600 mt-1">
-                    Retail locations
-                  </p>
+                  <p className="text-xs text-gray-600 mt-1">Retail locations</p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded border border-gray-200">
                   <p className="text-xs text-gray-500 uppercase mb-1">
@@ -126,8 +124,8 @@ export function Accuracy({ isOpen, onToggle }: AccuracyProps) {
           <SubSection code="B.3.2" title="Quality Assurance Procedures">
             <div className="space-y-4">
               <p className="text-gray-700 leading-relaxed">
-                Multiple quality control measures ensure accuracy and reliability
-                of price data:
+                Multiple quality control measures ensure accuracy and
+                reliability of price data:
               </p>
 
               <div className="space-y-3">
@@ -136,7 +134,9 @@ export function Accuracy({ isOpen, onToggle }: AccuracyProps) {
                     Field Validation
                   </h4>
                   <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
-                    <li>Supervisors conduct random spot checks (10% of outlets)</li>
+                    <li>
+                      Supervisors conduct random spot checks (10% of outlets)
+                    </li>
                     <li>Mobile data collection with GPS verification</li>
                     <li>Automated range and logic checks in real-time</li>
                     <li>Outlet replacement protocols for closures</li>
@@ -163,7 +163,9 @@ export function Accuracy({ isOpen, onToggle }: AccuracyProps) {
                   </h4>
                   <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
                     <li>Temporary absence: carry forward last price</li>
-                    <li>Permanent disappearance: comparable replacement item</li>
+                    <li>
+                      Permanent disappearance: comparable replacement item
+                    </li>
                     <li>Seasonal items: class mean imputation</li>
                     <li>
                       Missing outlet: use area average if &lt;20% response rate
@@ -181,8 +183,9 @@ export function Accuracy({ isOpen, onToggle }: AccuracyProps) {
                   No Routine Revisions
                 </h4>
                 <p className="text-sm text-amber-600 leading-relaxed">
-                  Once published, monthly CPI figures are <strong>not revised</strong> except
-                  in cases of significant errors discovered during quality assurance.
+                  Once published, monthly CPI figures are{" "}
+                  <strong>not revised</strong> except in cases of significant
+                  errors discovered during quality assurance.
                 </p>
               </div>
 

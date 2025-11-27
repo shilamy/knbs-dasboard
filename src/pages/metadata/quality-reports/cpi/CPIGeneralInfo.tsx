@@ -1,8 +1,8 @@
 // src/components/products/sections/CPIGeneralInfo.tsx
-import { SubSection } from "../../sections/SubSection";
-import { TableRow } from "../../sections/TableRow";
-import { SectionHeader } from "../../sections/SectionHeader";
-import type { SectionKey } from "../../QualityReport";
+import { SubSection } from "../common/SubSection";
+import { TableRow } from "../common/TableRow";
+import { SectionHeader } from "../common/SectionHeader";
+import type { SectionKey } from "../QualityReport";
 
 interface GeneralInfoProps {
   isOpen: boolean;

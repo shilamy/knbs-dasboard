@@ -1,6 +1,6 @@
 import type { SectionKey } from "../QualityReport";
-import { SectionHeader } from "./SectionHeader";
-import { SubSection } from "./SubSection";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
 
 interface AccuracyProps {
   isOpen: boolean;

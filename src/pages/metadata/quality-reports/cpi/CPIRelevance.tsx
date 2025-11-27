@@ -1,7 +1,7 @@
 // src/components/products/sections/CPIRelevance.tsx
-import type { SectionKey } from "../../QualityReport";
-import { SectionHeader } from "../../sections/SectionHeader";
-import { SubSection } from "../../sections/SubSection";
+import type { SectionKey } from "../QualityReport";
+import { SectionHeader } from "../common/SectionHeader";
+import { SubSection } from "../common/SubSection";
 
 interface RelevanceProps {
   isOpen: boolean;

@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
 
 export function Compendium() {
-  const quartoBookUrl = "http://localhost:6316/";
+  const quartoBookUrl = "http://localhost:4062/";
 
   return (
     <div className="bg-white rounded-lg shadow-sm border overflow-hidden">

@@ -1,6 +1,6 @@
-import { SubSection } from "./SubSection";
-import { TableRow } from "./TableRow";
-import { SectionHeader } from "./SectionHeader";
+import { SubSection } from "../common/SubSection";
+import { TableRow } from "../common/TableRow";
+import { SectionHeader } from "../common/SectionHeader";
 import type { SectionKey } from "../QualityReport";
 
 interface GeneralInfoProps {
