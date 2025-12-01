@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Sidebar } from "../../../components/layout/Sidebar";
-import { ReportTitleCard } from "./common/ReportTitleCard";
+// import { ReportTitleCard } from "./common/ReportTitleCard";
 import { GeneralInfo } from "./poverty-inequality/GeneralInfo";
 import { Relevance } from "./poverty-inequality/Relevance";
 import { MethodologicalSoundness } from "./poverty-inequality/MethodologicalSoundness";
@@ -10,6 +10,7 @@ import { Accessibility } from "./poverty-inequality/Accessibility";
 import { Coherence } from "./poverty-inequality/Coherence";
 import { References } from "./poverty-inequality/References";
 import { CPIContent } from "../../../components/products/CPIContent";
+import { PRODUCTS } from "./products";
 
 export type SectionKey =
   | "general"
@@ -29,8 +30,8 @@ interface QualityReportProps {
 
 export default function QualityReport({
   initialProductId = "poverty-inequality",
-  onProductChange,
-}: QualityReportProps) {
+}: // onProductChange,
+QualityReportProps) {
   const [selectedProduct, setSelectedProduct] = useState(initialProductId);
   const [expandedSections, setExpandedSections] = useState<
     Record<SectionKey, boolean>
@@ -46,6 +47,11 @@ export default function QualityReport({
     references: false,
   });
 
+  // Get the current product data
+  const currentProduct = PRODUCTS.find(
+    (product) => product.id === selectedProduct
+  );
+
   const toggleSection = (id: SectionKey) => {
     setExpandedSections((prev) => ({
       ...prev,
@@ -53,13 +59,13 @@ export default function QualityReport({
     }));
   };
 
-  const handleProductChange = (productId: string) => {
-    setSelectedProduct(productId);
-    // Notify parent component about the change
-    if (onProductChange) {
-      onProductChange(productId);
-    }
-  };
+  // const handleProductChange = (productId: string) => {
+  //   setSelectedProduct(productId);
+  //   // Notify parent component about the change
+  //   if (onProductChange) {
+  //     onProductChange(productId);
+  //   }
+  // };
 
   // Update when initialProductId changes (from navigation)
   useEffect(() => {
@@ -76,16 +82,17 @@ export default function QualityReport({
           />
 
           <div className="col-span-9">
-            <ReportTitleCard
+            {/* <ReportTitleCard
               onProductChange={handleProductChange}
               selectedProductId={selectedProduct}
-            />
+            /> */}
 
             {selectedProduct === "poverty-inequality" ? (
               <>
                 <GeneralInfo
                   isOpen={expandedSections.general}
                   onToggle={toggleSection}
+                  selectedProduct={currentProduct}
                 />
                 <Relevance
                   isOpen={expandedSections.relevance}
@@ -120,6 +127,7 @@ export default function QualityReport({
               <CPIContent
                 expandedSections={expandedSections}
                 onToggle={toggleSection}
+                selectedProduct={currentProduct}
               />
             ) : null}
           </div>

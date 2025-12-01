@@ -1,5 +1,6 @@
 // src/components/products/CPIContent.tsx
 import type { SectionKey } from "../../pages/metadata/quality-reports/QualityReport";
+import type { Product } from "../../pages/metadata/quality-reports/products";
 import { GeneralInfo } from "../../pages/metadata/quality-reports/cpi/CPIGeneralInfo";
 import { Relevance } from "../../pages/metadata/quality-reports/cpi/CPIRelevance";
 import { MethodologicalSoundness } from "../../pages/metadata/quality-reports/cpi/CPIMethodologicalSoundness";
@@ -12,12 +13,21 @@ import { References } from "../../pages/metadata/quality-reports/cpi/CPIReferenc
 interface CPIContentProps {
   expandedSections: Record<SectionKey, boolean>;
   onToggle: (id: SectionKey) => void;
+  selectedProduct?: Product;
 }
 
-export function CPIContent({ expandedSections, onToggle }: CPIContentProps) {
+export function CPIContent({
+  expandedSections,
+  onToggle,
+  selectedProduct,
+}: CPIContentProps) {
   return (
     <>
-      <GeneralInfo isOpen={expandedSections.general} onToggle={onToggle} />
+      <GeneralInfo
+        isOpen={expandedSections.general}
+        onToggle={onToggle}
+        selectedProduct={selectedProduct}
+      />
       <Relevance isOpen={expandedSections.relevance} onToggle={onToggle} />
       <MethodologicalSoundness
         isOpen={expandedSections.methodology}
