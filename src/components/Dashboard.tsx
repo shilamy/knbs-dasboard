@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Breadcrumb } from "./layout/Breadcrumb";
 import { TopHeader } from "./layout/TopHeader";
 import { MainHeader } from "./layout/MainHeader";
-import { Footer } from "./layout/Footer";
 import { MainNavigation } from "./layout/MainNavigation";
+
 import { CodeOfPractice } from "../pages/quality/CodeOfPractice";
 import { Kesqaf } from "../pages/quality/Kesqaf";
 import { Kspm } from "../pages/quality/Kspm";
@@ -12,43 +12,22 @@ import { ClassificationNational } from "../pages/metadata/ClassificationNational
 import { ClassificationInternational } from "../pages/metadata/ClassificationInternational";
 import { Codelists } from "../pages/metadata/Codelists";
 import { Dictionary } from "../pages/metadata/Dictionary";
+import Footer from "./layout/Footer";
 
 export default function Dashboard() {
-  const [currentPath, setCurrentPath] = useState("/metadata/quality-reports");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-  // Shrink navigation for quality reports AND dictionary
+  // Shrink navigation for specific pages
   const isCompactView =
-    currentPath === "/metadata/quality-reports" ||
-    currentPath === "/metadata/dictionary" ||
-    currentPath === "/quality/Kesqaf";
-
-  const renderContent = () => {
-    switch (currentPath) {
-      case "/quality/code-of-practice":
-        return <CodeOfPractice />;
-      case "/quality/kesqaf":
-        return <Kesqaf />;
-      case "/quality/kspm":
-        return <Kspm />;
-      case "/metadata/quality-reports":
-        return <QualityReports />;
-      case "/metadata/classification/national":
-        return <ClassificationNational />;
-      case "/metadata/classification/international":
-        return <ClassificationInternational />;
-      case "/metadata/codelists":
-        return <Codelists />;
-      case "/metadata/dictionary":
-        return <Dictionary />;
-      default:
-        return <QualityReports />;
-    }
-  };
+    currentPath === "/dashboard/metadata/quality-reports" ||
+    currentPath === "/dashboard/metadata/dictionary" ||
+    currentPath === "/dashboard/quality/kesqaf";
 
   return (
     <div className="min-h-screen bg-gray-100">
       <TopHeader />
-
       <MainHeader />
       <Breadcrumb />
 
@@ -56,19 +35,34 @@ export default function Dashboard() {
         <div className="grid grid-cols-12 gap-6">
           <div className={isCompactView ? "col-span-2" : "col-span-3"}>
             <MainNavigation
-              onNavigate={setCurrentPath}
-              currentPath={currentPath}
+              onNavigate={(path) => navigate(path)}
+              currentPath={currentPath.replace("/dashboard", "")}
               isCompact={isCompactView}
             />
           </div>
 
           <div className={isCompactView ? "col-span-10" : "col-span-9"}>
-            {renderContent()}
+            <Routes>
+              {/* Quality pages */}
+              <Route path="quality/code-of-practice" element={<CodeOfPractice />} />
+              <Route path="quality/kesqaf" element={<Kesqaf />} />
+              <Route path="quality/kspm" element={<Kspm />} />
+
+              {/* Metadata pages */}
+              <Route path="metadata/quality-reports" element={<QualityReports />} />
+              <Route path="metadata/classification/national" element={<ClassificationNational />} />
+              <Route path="metadata/classification/international" element={<ClassificationInternational />} />
+              <Route path="metadata/codelists" element={<Codelists />} />
+              <Route path="metadata/dictionary" element={<Dictionary />} />
+
+              {/* Default fallback */}
+              <Route path="*" element={<QualityReports />} />
+            </Routes>
           </div>
         </div>
       </div>
-
       <Footer />
+      
     </div>
   );
 }

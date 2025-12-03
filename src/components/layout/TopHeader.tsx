@@ -6,13 +6,17 @@ export function TopHeader() {
           <span>Kenya National Bureau of Statistics</span>
           <span className="text-knbs-300">|</span>
           <span>Statistical Quality Assurance</span>
+          <span className="text-knbs-300">|</span>
+          <a href="https://www.knbs.or.ke/knbs-downloads/" className="hover:text-knbs-200">
+            Downloads
+          </a>
         </div>
         <div className="flex items-center gap-4">
-          <a href="#" className="hover:text-knbs-200">
+          <a href="https://www.knbs.or.ke/contacts/" className="hover:text-knbs-200">
             Contact
           </a>
-          <a href="#" className="hover:text-knbs-200">
-            Help
+          <a href="https://www.knbs.or.ke/compliments-complaints/" className="hover:text-knbs-200">
+            Feedback
           </a>
         </div>
       </div>
