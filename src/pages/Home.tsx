@@ -14,7 +14,6 @@ import {
   Shield,
   ListTree,
   Settings,
-  ExternalLink,
   Phone,
   Mail,
   MapPin,
@@ -23,9 +22,8 @@ import {
   Globe,
   ShieldCheck,
   ChevronRight,
-  MessageCircle,
-  MessageSquare,
-} from "lucide-react"
+  MessageCircle
+  } from "lucide-react"
 import Footer  from "../components/layout/Footer"
 
 
@@ -65,7 +63,7 @@ const contactInfo = [
   }
 ];
 
-// Add this handler function for click actions
+
 const handleContactAction = (type, value) => {
   switch(type) {
     case 'phone':
@@ -78,7 +76,7 @@ const handleContactAction = (type, value) => {
       window.open(`https://maps.app.goo.gl/zn2RSVLg7e1qEQYd8${encodeURIComponent(value)}`, '_blank');
       break;
     default:
-      // For hours - could show a detailed schedule modal
+      
       console.log(`Viewing ${type}: ${value}`);
   }
 };
@@ -140,6 +138,7 @@ export function Homepage() {
   ]
 
   return (
+    
     <div className="min-h-screen flex flex-col bg-white">
       <TopHeader />
 
@@ -263,26 +262,6 @@ export function Homepage() {
           </div>
         </div>
       </section>
-
-     {/* 
-      Standards & Frameworks Section - REMOVED
-      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50 border-y-2 border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <div className="text-center mb-10 sm:mb-12">
-            <div className="inline-block px-4 sm:px-5 py-2 bg-white text-slate-700 rounded-md mb-4 border border-slate-300 shadow-sm text-xs sm:text-sm">
-              International Compliance
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
-              Standards & Frameworks
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              KNBS operations are aligned with internationally recognized standards and best practices
-            </p>
-          </div>
-        </div>
-      </section>
-      */}
-
       {/* Key Features - Government Benefits */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
